@@ -180,7 +180,7 @@ class ExportWeatherRecordsToExcel:
 
             # Запускаю в отдельном процессе выгрузку данных
             loop = asyncio.get_running_loop()
-            loop.run_in_executor(
+            await loop.run_in_executor(
                 executor=executor,
                 func=functools.partial(
                     data_frame.to_excel,
